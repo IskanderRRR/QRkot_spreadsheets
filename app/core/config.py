@@ -4,13 +4,13 @@ from pydantic import BaseSettings, EmailStr
 
 
 class Settings(BaseSettings):
-    app_title: str = 'QRKot'
-    description: str = 'Благотворительный фонд поддержки котиков'
+    app_title: str = "QRKot"
+    description: str = "Благотворительный фонд поддержки котиков"
     # pytest просит по дефолту поставить : sqlite+aiosqlite
-    database_url: str = 'sqlite+aiosqlite:///./fastapi.db'
+    database_url: str = "sqlite+aiosqlite:///./fastapi.db"
 
-    secret: str = 'SECRET'
-    api_version = 'v4'
+    secret: str = "SECRET"
+    api_version = "v4"
     first_superuser_email: Optional[EmailStr] = None
     first_superuser_password: Optional[str] = None
     type: Optional[str] = None
@@ -26,7 +26,7 @@ class Settings(BaseSettings):
     email: Optional[str] = None
 
     class Config:
-        env_file = '.env'
+        env_file = ".env"
 
 
 settings = Settings()
