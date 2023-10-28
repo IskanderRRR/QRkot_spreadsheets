@@ -4,7 +4,7 @@ from aiogoogle import Aiogoogle
 from app.core.config import settings
 
 
-FORMAT = "%Y/%m/%d %H:%M:%S"
+FORMAT = '%Y/%m/%d %H:%M:%S'
 RANGE_UPDATE = 'A1:E400'
 SPREADSHEET_BODY = {
     'properties': {'title': None, 'locale': 'ru_RU'},
@@ -42,7 +42,7 @@ async def set_user_permissions(
         service.permissions.create(
             fileId=spreadsheet_id,
             json=permissions_body,
-            fields="id"
+            fields='id'
         ))
 
 
@@ -52,7 +52,7 @@ async def spreadsheets_update_value(
         wrapper_services: Aiogoogle
 ) -> None:
     now_date_time = datetime.now().strftime(FORMAT)
-    service = await wrapper_services.discover('sheets', 'v4')
+    service = await wrapper_services.discover('sheets', settings.api_version)
     table_values = [
         ['Отчет от', now_date_time],
         ['Топ проектов по скорости закрытия'],
